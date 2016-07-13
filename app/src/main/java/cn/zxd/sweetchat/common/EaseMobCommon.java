@@ -2,8 +2,10 @@ package cn.zxd.sweetchat.common;
 
 import android.content.Context;
 
+import com.hyphenate.EMCallBack;
 import com.hyphenate.chat.EMClient;
 import com.hyphenate.chat.EMOptions;
+import com.hyphenate.exceptions.HyphenateException;
 
 import cn.zxd.sweetchat.BuildConfig;
 
@@ -37,5 +39,17 @@ public class EaseMobCommon {
 
     public boolean isLoggedIn() {
         return EMClient.getInstance().isLoggedInBefore();
+    }
+
+    public void regist(String account, String password) throws HyphenateException {
+        EMClient.getInstance().createAccount(account, password);
+    }
+
+    public void login(String account, String password, EMCallBack loginCallBack) {
+        EMClient.getInstance().login(account, password, loginCallBack);
+    }
+
+    public void logout() {
+        EMClient.getInstance().logout(true);
     }
 }

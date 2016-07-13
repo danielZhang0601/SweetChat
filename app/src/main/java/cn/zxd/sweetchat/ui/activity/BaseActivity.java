@@ -13,7 +13,7 @@ public abstract class BaseActivity extends AppCompatActivity {
 
     public static void launch(Context context, Class activityClass, Bundle bundle) {
         Intent intent = new Intent(context, activityClass);
-        if (null != bundle)
+        if (null != bundle && !bundle.isEmpty())
             intent.putExtras(bundle);
         context.startActivity(intent);
     }
