@@ -7,6 +7,7 @@ import android.widget.FrameLayout;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import cn.zxd.sweetchat.R;
+import cn.zxd.sweetchat.common.EaseMobCommon;
 
 public class SplashActivity extends FullScreenActivity {
 
@@ -25,5 +26,15 @@ public class SplashActivity extends FullScreenActivity {
     protected void onStart() {
         super.onStart();
         fullScreen();
+        fl_splash_root.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                if (EaseMobCommon.getInstance().isLoggedIn())
+                    launch(SplashActivity.this, MainActivity.class, null);
+                else
+                    launch(SplashActivity.this, LoginActivity.class, null);
+                finish();
+            }
+        }, 1500);
     }
 }

@@ -11,7 +11,7 @@ import android.view.View;
 
 public abstract class FullScreenActivity extends BaseActivity {
 
-    static final int UI_ANIMATION_DELAY = 300;
+    static final int UI_ANIMATION_DELAY = 100;
 
     final Handler mHideHandler = new Handler();
 
